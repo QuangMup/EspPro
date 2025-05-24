@@ -37,13 +37,27 @@ B.Position=UDim2.new(0,10,0,90)
 B.BackgroundColor3=Color3.fromRGB(50,50,50)
 B.TextColor3=Color3.new(1,1,1)
 B.TextScaled=true
-if not vK then TL.Text="Sai key. kút." TL.TextColor3=Color3.fromRGB(255,0,0) TB:Destroy() B:Destroy() return end
+if not vK then
+  TL.Text="Sai key. kút."
+  TL.TextColor3=Color3.fromRGB(255,0,0)
+  TB:Destroy()
+  B:Destroy()
+  return
+end
 local e=true
 local m=2000
 local d={}
 local t=Enum.KeyCode.F1
 local bP={{"ServerColliderHead","ServerCollider"},{"ServerCollider","HumanoidRootPart"},{"HumanoidRootPart","LeftLeg"}}
-local function cT(s)local t=Drawing.new("Text")t.Size=s;t.Center=true;t.Outline=false;t.Color=Color3.new(1,1,1);t.Visible=false;return t end
+local function cT(s)
+  local t=Drawing.new("Text")
+  t.Size=s
+  t.Center=true
+  t.Outline=false
+  t.Color=Color3.new(1,1,1)
+  t.Visible=false
+  return t
+end
 local function CESP(p)
  if d[p]then return end
  local nT=cT(18)
@@ -161,9 +175,7 @@ U.InputBegan:Connect(function(i,gpe)
  if gpe then return end
  if i.KeyCode==t then e=not e end
 end)
-local function rESP()
- SG:Destroy()
-end
+local function rESP()SG:Destroy()end
 B.MouseButton1Click:Connect(function()
  if TB.Text==vK then rESP() else TL.Text="Invalid Key! Try Again." TL.TextColor3=Color3.new(1,0,0) end
 end)
